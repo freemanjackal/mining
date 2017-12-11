@@ -1,0 +1,19 @@
+222
+222
+222
+Exception KeyboardInterrupt in <module 'threading' from '/usr/lib/python2.7/threading.pyc'> ignored
+Unhandled exception in thread started by <bound method _Timer.__bootstrap of <_Timer(Thread-3, started 140643865184000)>>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 774, in __bootstrap
+    self.__bootstrap_inner()
+  File "/usr/lib/python2.7/threading.py", line 848, in __bootstrap_inner
+    with _active_limbo_lock:
+AttributeError: __exit__
+222
+222
+222
+222
+222
+222
+222
+python: can't open file 'collector.py': [Errno 2] No such file or directory

@@ -1,0 +1,335 @@
+<html>
+<head>
+<link rel="icon" type="image/jpeg" href="./img/favico.jpg" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<!--script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script-->
+<style>#slider { margin: 10px; }	</style>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<!--script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script-->
+<!--script src="/realtime/lumen/public/js/rangeslider.min.js"></script-->
+<script src="./js/CryptoJS.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+<!--script src="https://authedmine.com/lib/simple-ui.min.js" async></script-->
+<script type="text/javascript" src="./js/dataTable.js" charset="utf8"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+
+<script type="text/javascript" src="https://xmr.llcoins.net/js/biginteger.js" charset="utf8"></script>
+<script src="https://xmr.llcoins.net/js/config.js"></script>
+<script type="text/javascript" src="https://xmr.llcoins.net/js/base58.js" charset="utf8"></script>
+<script src="https://xmr.llcoins.net/js/sha3.js"></script>
+<script src="https://xmr.llcoins.net/js/cn_util.js" charset="utf8"></script>
+<script type="text/javascript" src="https://xmr.llcoins.net/js/site.js" charset="utf8"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="./js/index.js"></script>
+
+<style>
+.tope{
+margin-top: 100px;
+position: relative;
+}
+</style>
+
+</head>
+<body>
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+				
+                <a class="navbar-brand page-scroll" href="#"><img src="./img/monero-logo.png" width="20px" height="20px"></a>
+				
+			</div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+                    <li>
+					<a class="navbar-brand " style="margin-left:60%;" href="#">Probably fair free monero</a>
+                        
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+					
+                        <a class="page-scroll" href="" data-toggle="modal" data-target="#myModal">FAQ</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+  <div class="col-md-12 tope" id="page-top">
+    
+  <p class="col-md-8 col-md-offset-2">
+    Enter a valid monero address in the box below, click 'Start mining', and keep your browser window open. Your computer will join a pool of computers mining cryptocurrency. Every hour, if the pool's mining reward is greater than $0.30, one bitcoin address will be selected in a provably fair way, and the reward will be paid out to that address. The more you mine, the more likely your address will be chosen!
+    </p>
+    <br>
+    
+    <br>
+   
+        <div class="row form-group col-md-10 col-md-offset-2">
+            <div class="col-md-2">
+                <label for="inputBtc" class=''>Monero address for payout</label> 
+            </div>
+            <div class="col-md-6">
+                <input id='BitcoinAddress' class='form-control' type="text" placeholder="Enter your monero address here">
+            </div>
+        
+        </div>
+    <br>
+	<div class="col-md-10 col-md-offset-2">
+	<p ><span class="col-md-1">CPU Power</span>
+	<div class="col-md-3">
+    <input id='CPUPower' type="range" class="rangeslider" min="5" max="100" step="5" onchange="updateSlider()">
+	</div>
+	<span id="CPUPowerText">% of available CPU power will be used for mining</span>
+	<span></span>
+	</p>
+	</div>
+	
+   </div>
+  <div class="col-md-12">
+  <!--p id='UserHashesPerSecond' class="col-md-offset-2">Currently mining <span id="hash">0.0</span> hashes/second</p-->
+  <br>
+  <button id='ToggleMining' type="submit" class='btn btn-primary col-md-1 col-md-offset-3'>Start mining</button><br>
+  
+  </div>
+  <br>
+  <br>
+  <div class="col-md-12">
+  <br>
+  <br>
+  <p class="col-md-offset-2"> To get a monero address, go to <a href="http://mymonero.com"> mymonero.com
+  </a> and create and account. </p>
+  </div>
+ 
+<div class='col-md-8 col-md-offset-2 panel panel-default' style="padding-left:0px; padding-right:0px;">
+<div class="panel-heading" >Statistics</div>
+<div class="panel-body col-md-12">
+<table id="example"  cellspacing="0">
+        <thead>
+            <tr>
+                
+                <th>hps</th>
+                <th>probability winning</th>
+                <th>hashes</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>hps</th>
+                <th>probability winning</th>
+                <th>hashes</th>
+                <th>Name</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class='col-md-8 col-md-offset-2 panel panel-default' style="padding-left:0px; padding-right:0px;">
+<div class="panel-heading"> Payment history</div>
+<div class="panel-body">
+<table id="payment" class="display" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+
+                <th>Amount</th>
+				<th>Date</th>
+                <th>Status</th>
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Amount</th>
+				<th>Date</th>
+                <th>Status</th>
+                <th>Name</th>
+
+            </tr>
+        </tfoot>
+    </table>
+	</div>
+</div>
+
+<!-- Modal -->
+  <div class="modal fade col-md-12" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">FAQ</h4>
+        </div>
+        <div class="modal-body">
+            <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">What is monero?</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">Monero is a secure, private, and untraceable cryptocurrency. It is open-source and accessible to all. With Monero, you are your own bank. Only you control and are responsible for your funds. Your accounts and transactions are kept private from prying eyes.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">What Is Cryptocurrency?</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">It is a form of digital money designed to be secure and anonymous in most cases. It uses a technique called cryptography — a process used to convert legible information into an almost uncrackable code, to help track purchases and transfers.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">What is mining?</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body"> Mining is the mechanism used to introduce new coins into the system: Miners are paid any transaction fees as well as a "subsidy" of newly created coins. This both serves the purpose of disseminating new coins in a decentralized manner as well as motivating people to provide security for the system. </div>
+      </div>
+    </div>
+  </div>
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+<!--script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.1/js/dataTables.fixedColumns.min.js"></script-->
+</body>
+<footer class="col-md-12">
+<h1></h1>
+</footer>
+
+<script>
+		
+		$(document).ready(function() {
+					
+			var user_stats = $('#example').DataTable( {
+		
+			"sScrollX": "100%",
+			"autoWidth": false,
+			"bLengthChange": false,
+			"sScrollXInner": "150%",
+		//	'fixedColumns': true,
+		//'scrollY':        "300px",
+        //'scrollX':        true,
+        
+	//'fixedColumns':true,
+//"bScrollCollapse": true
+				'ajax': {
+					'url': './js/statistics_users.json',
+					"dataSrc": function (json){ 
+					
+					return userStats(json);				
+					}
+
+				}
+			} );
+
+
+//new FixedColumns( user_stats);
+		var hps_site = 0;
+
+		function userStats(json){
+		    var data = Array();
+
+                    for(var i= 0; i< json.users.length; i ++){
+			 var temp = [ json.users[i].hps, json.users[i].winning + ' %', json.users[i].balance,json.users[i].name];
+			data[i] = temp;
+              	      }
+
+		    return data;
+		
+		}
+
+	
+		var paymet = $('#payment').DataTable( {
+				"sScrollX": "100%",
+			"autoWidth": false,
+			"bLengthChange": false,
+			"sScrollXInner": "150%",
+				'ajax': {
+					'url': './js/payments.json',
+					"dataSrc": function(json){
+						return payments(json);
+					}
+				}
+	} );
+		
+		setInterval( function () {
+			paymet.ajax.reload( null, false ); // user paging is not reset on reload
+			user_stats.ajax.reload( null, false );
+		}, 30000 );
+	} );	
+
+	function payments(json){
+		
+		var data = Array();
+					
+		for(var i= 0; i< json.length; i ++){
+			json[i][2] = timeConverter(json[i][2]);
+			if(json[i][3] == "paid")
+				json[i][3] = "<a href="+json[i][4]+">paid</a>";
+		}
+		return json;
+		
+	}
+
+
+
+
+function timeConverter(UNIX_timestamp){
+	//UNIX_timestamp = 1512934156;
+  var a = new Date(UNIX_timestamp * 1000);
+  //var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  //var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var time = date + '/' + a.getMonth() + '/' + year + ' ' + hour + ':' + min + ':' + sec ;
+
+  return time;
+
+}
+//alert(timeConverter(12));
+
+
+	
+			
+		/*setInterval(function() {
+		var hashesPerSecond = miner.getHashesPerSecond();
+		var totalHashes = miner.getTotalHashes();
+		var acceptedHashes = miner.getAcceptedHashes();
+
+		// Output to HTML elements...
+	}, 1000);*/		
+</script>
+</html>    

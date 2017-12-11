@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "collector.py", line 144, in <module>
+    timing()
+  File "collector.py", line 85, in timing
+    readData()
+  File "collector.py", line 35, in readData
+    data = json.load(open('statistics_users.json'))
+IOError: [Errno 2] No such file or directory: 'statistics_users.json'
