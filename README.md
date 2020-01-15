@@ -1,1 +1,1 @@
-# mining
+# monero web mining tests
